@@ -6,15 +6,16 @@ using System.Net;
 namespace Catalog.API.Controllers
 {
     [ApiController]
-    [Route("api/{controller}")]
+    [Route("api/[controller]")]
     public class CatalogController : ControllerBase
     {
         private readonly IProductRespostory _productRespostory;
-        private readonly ILogger _logger;
+        private readonly ILogger<CatalogController> _logger;
 
-        public CatalogController(IProductRespostory productRespostory, ILogger logger)
+        public CatalogController(IProductRespostory productRespostory, ILogger<CatalogController> logger)
         {
-            _productRespostory = productRespostory;
+            _productRespostory = productRespostory ;
+            _logger = logger;
         }
 
         [HttpGet]
